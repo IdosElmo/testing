@@ -119,9 +119,7 @@ int TicTacToe::checkRowVictory(Board& board){
 		rowCountX = 0;
 	}
 	
-	else{
 	return 0;
-	}
 }
 
 //1 for 'X' -
