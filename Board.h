@@ -18,7 +18,6 @@ using namespace std;
 class Board {
     public:
     
-        void resetBoard();
         
         Board();
         
