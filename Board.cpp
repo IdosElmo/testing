@@ -118,8 +118,6 @@ void Board::setMatrix(const int dimension) {
         board[i] = new CheckBoard[dimension];
 }
 
-void Board::resetBoard(){
-    board = '.';
-}
+
 
     
