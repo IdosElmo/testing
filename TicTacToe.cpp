@@ -119,7 +119,9 @@ int TicTacToe::checkRowVictory(Board& board){
 		rowCountX = 0;
 	}
 	
+	else{
 	return 0;
+	}
 }
 
 //1 for 'X' -
@@ -152,7 +154,9 @@ int TicTacToe::checkColVictory(Board& board){
 	colCountO = 0;
 	colCountX = 0;
 	
+	else{
 	return 0;
+	}
 }
 
 //1 for 'X' -
@@ -163,9 +167,8 @@ int TicTacToe::checkDiagVictory(Board& board){
     
     for (uint y=0; y<board.size(); ++y) {
 		for (uint x=0; x<board.size(); ++x) {
-            if(x == y)
-            {
-            Coordinate c{x,y};
+            if(x == y){
+            Coordinate c{y,x};
 		    if(board[c] == 'X')
 		    {
 		        diagCountX++;
@@ -174,9 +177,9 @@ int TicTacToe::checkDiagVictory(Board& board){
 		    {
 		        diagCountO++;
 		    }
-            }
-		}
+        }
 	}
+}
 	
 	if(diagCountX == board.size()){
 		return 1;
@@ -184,8 +187,9 @@ int TicTacToe::checkDiagVictory(Board& board){
 	else if(diagCountO == board.size()){
 	    return 2;
 	}
-	
+	else{
 	return 0;
+	}
 }
  
  
