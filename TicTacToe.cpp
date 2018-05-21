@@ -192,7 +192,8 @@ int TicTacToe::checkDiagVictory(Board& board){
  
  
 Player& TicTacToe::winner() const{
-    return *win;
+	resetBoard();
+    	return *win;
 }
 
 Board TicTacToe::board() const{
