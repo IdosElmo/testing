@@ -4,7 +4,7 @@ using namespace std;
 
 
     const Coordinate Champion::play(const Board& board) {
-	for (uint x = board.size() - 1; x >= 0; --x) {
+	for (uint x = board.size() - 1; x >= -1; --x) {
 		for (uint y=0; y<board.size(); ++y) {
 			
 			Coordinate c{x,y};
