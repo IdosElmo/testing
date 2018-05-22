@@ -39,7 +39,7 @@ class TicTacToe {
         
         int checkColVictory(Board& board);
         
-        int checkDiagVictory(Board& board);
+        int checkMainDiagVictory(Board& board);
     
         int checkSecDiagVictory(Board& board);
         
