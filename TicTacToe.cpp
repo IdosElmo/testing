@@ -40,7 +40,7 @@ void TicTacToe::play(Player& player1, Player& player2){
             		return;
         		}
     	}
-        else if(count = attempts){
+        else if(count == attempts){
         	return;
         }
         else{
