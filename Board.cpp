@@ -58,7 +58,7 @@ Board::~Board(){
 }             
 
 
-    Board& Board::operator= (char Char){
+    const Board& Board::operator= (char Char) const{
         if(Char != '.' && Char != 'X' && Char != 'O')
         throw IllegalCharException(Char);
        
