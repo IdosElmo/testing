@@ -41,6 +41,8 @@ void TicTacToe::play(Player& player1, Player& player2){
         		}
     	}
         else if(count == attempts){
+	    	//incase of tie. player2 is a defualt winner.
+    		win = &player2;
         	return;
         }
         else{
@@ -50,8 +52,7 @@ void TicTacToe::play(Player& player1, Player& player2){
         count++;
         
     }
-    	//incase of tie. player2 is a defualt winner.
-    	win = &player2;
+
 }
 
 
