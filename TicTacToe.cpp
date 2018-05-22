@@ -192,6 +192,7 @@ int TicTacToe::checkDiagVictory(Board& board){
  
  
 Player& TicTacToe::winner() const{
+	gameBoard = '.';
     	return *win;
 }
 
