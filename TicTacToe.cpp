@@ -7,8 +7,6 @@
  }
  
 void TicTacToe::play(Player& player1, Player& player2){
- 	
-
      
     int count = 0;
     int attempts = gameBoard.size() * gameBoard.size();
@@ -49,8 +47,7 @@ void TicTacToe::play(Player& player1, Player& player2){
         count++;
         
     }
-	
-	//incase of tie. player2 is a defualt winner.
+    	//incase of tie. player2 is a defualt winner.
     	win = &player2;
 }
 
@@ -79,11 +76,13 @@ bool TicTacToe::turnIsLegal(Player& player){
 //0 for none -  
 int TicTacToe::checkForWin(Board& board){
     
-    if(checkRowVictory(board) == 1 || checkColVictory(board) == 1 || checkDiagVictory(board) == 1){
+    if(checkRowVictory(board) == 1 || checkColVictory(board) == 1 ||
+    	checkMainDiagVictory(board) == 1 || checkSecDiagVictory(board) == 1){
         //player 1 win
         return 1;
     }
-    else if(checkRowVictory(board) == 2 || checkColVictory(board) == 2 || checkDiagVictory(board) == 2){
+    else if(checkRowVictory(board) == 2 || checkColVictory(board) == 2 ||
+    			checkMainDiagVictory(board) == 2 || checkSecDiagVictory(board) == 2){
         //player 2 win
         return 2;
     }
@@ -117,10 +116,47 @@ int TicTacToe::checkRowVictory(Board& board){
 		else if(rowCountO == board.size()){
 		    return 2;
 		}
+		
 		rowCountO = 0;
 		rowCountX = 0;
 	}
+
+	return 0;
+
+}
+
+//1 for 'X' -
+//2 for 'O' -
+//0 for none - 
+int TicTacToe::checkSecDiagVictory(Board& board){
+	int diagCountX = 0, diagCountO = 0;
+	int count = 0;
 	
+	uint x1 = 0, x2 = board.size() - 1;
+	
+	while(count < board.size()){
+		Coordinate c{x1,x2};
+		    if(board[c] == 'X')
+		    {
+		        diagCountX++;
+		    }
+		    else if(board[c] == 'O')
+		    {
+		        diagCountO++;
+		    }
+		    
+		    x1++;
+		    x2--;
+		    count++;
+	}
+	
+		if(diagCountX == board.size()){
+			return 1;
+		}
+		else if(diagCountO == board.size()){
+	    	return 2;
+		}
+		
 	return 0;
 }
 
@@ -160,7 +196,7 @@ int TicTacToe::checkColVictory(Board& board){
 //1 for 'X' -
 //2 for 'O' -
 //0 for none - 
-int TicTacToe::checkDiagVictory(Board& board){
+int TicTacToe::checkMainDiagVictory(Board& board){
     int diagCountX = 0, diagCountO = 0;
     
 	for (uint x=0; x<board.size(); ++x) {
@@ -193,7 +229,7 @@ int TicTacToe::checkDiagVictory(Board& board){
  
 Player& TicTacToe::winner() const{
 	gameBoard = '.';
-    	return *win;
+    return *win;
 }
 
 Board TicTacToe::board() const{
