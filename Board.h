@@ -27,7 +27,7 @@ class Board {
         
         ~Board();
         
-        Board& operator= (char Char);
+        const Board& operator= (char Char) const;
         
         Board& operator= (const Board& board);
 
