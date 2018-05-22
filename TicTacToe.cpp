@@ -32,7 +32,7 @@ void TicTacToe::play(Player& player1, Player& player2){
         count++;
          
         //player2's turn
-        if(turnIsLegal(player2)){
+        if(turnIsLegal(player2) && count < attempts){
         	gameBoard[player2.play(gameBoard)] = 'O';
         		if(checkForWin(gameBoard) == 2){
             		win = &player2; 
